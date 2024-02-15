@@ -25,6 +25,17 @@ class TestPalindrome(unittest.TestCase):
         attendu=str1 + os.linesep + 'bien dit'
         self.assertIn(attendu, resultat)
     
+    def test_bonjour(self):
+        #ETANT donne une chaine de caractere
+        str1="salut"
+
+        #QUAND on dmd si c un palindrome
+        resultat=DetecteurPalindrome.isPalindrome(str1)
+
+        #ALORS bonjour est envoyé avant
+        attendu='bonjour'
+        res=resultat.split(os.linesep)[0]
+        self.assertEqual(attendu, res)
 
 
 
