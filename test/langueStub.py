@@ -5,5 +5,5 @@ class LangueStub():
     def bonjour(self,moment):
         return ""
     
-    def aurevoir(self):
+    def aurevoir(self,moment):
         return ""

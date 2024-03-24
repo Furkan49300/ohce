@@ -51,15 +51,16 @@ class TestPalindrome(unittest.TestCase):
         self.assertEqual(attendu, res)
 
     def test_aurevoir(self):
-        langues = [[LangueFrancaise(), 'au revoir'],[LangueAnglaise(), 'good bye']]
+        langues = [[LangueFrancaise(), 'aurevoir_am','matin'],[LangueAnglaise(), 'good bye afternoon','apresmidi']]
         #ETANT donne une chaine de caractere et une langue et un moment
         str1="salut"
         for i in langues:
             with (self.subTest(i[0])):
                 langue=i[0]
+                moment=i[2]
 
         #QUAND on saisit la chaine
-        resultat=DetecteurPalindromeBuilder().isLangue(langue).build().isPalindrome(str1)
+        resultat=DetecteurPalindromeBuilder().isLangue(langue).isMoment(moment).build().isPalindrome(str1)
 
         #ALORS au revoir de cette langue et de ce moment est envoyé en dernier
         attendu=i[1]

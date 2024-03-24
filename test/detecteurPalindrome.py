@@ -6,5 +6,5 @@ class DetecteurPalindrome:
         self.__moment=moment
 
     def isPalindrome(self, str):
-        return self.__langue.bonjour(self.__moment) + os.linesep+ str[::-1] + os.linesep+ self.__langue.biendit() + os.linesep+ self.__langue.aurevoir()
+        return self.__langue.bonjour(self.__moment) + os.linesep+ str[::-1] + os.linesep+ self.__langue.biendit() + os.linesep+ self.__langue.aurevoir(self.__moment)
         
