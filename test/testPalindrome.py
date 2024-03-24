@@ -50,14 +50,18 @@ class TestPalindrome(unittest.TestCase):
         self.assertEqual(attendu, res)
 
     def test_aurevoir(self):
-        #ETANT donne une chaine de caractere
+        langues = [[LangueFrancaise(), 'au revoir'],[LangueAnglaise(), 'good bye']]
+        #ETANT donne une chaine de caractere et une langue
         str1="salut"
+        for i in langues:
+            with (self.subTest(i[0])):
+                langue=i[0]
 
-        #QUAND on dmd si c un palindrome
-        resultat=DetecteurPalindromeBuilder().build().isPalindrome(str1)
+        #QUAND on dmd saisit la chaine
+        resultat=DetecteurPalindromeBuilder().isLangue(langue).build().isPalindrome(str1)
 
         #ALORS au revoir est envoyé en dernier
-        attendu='au revoir'
+        attendu=i[1]
         res= resultat.split(os.linesep)[-1]
         self.assertEqual(attendu, res)
 

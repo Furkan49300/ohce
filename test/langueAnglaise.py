@@ -4,3 +4,6 @@ class LangueAnglaise():
     
     def bonjour(self):
         return "hello"
+    
+    def aurevoir(self):
+        return "good bye"
