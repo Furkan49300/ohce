@@ -1,6 +1,9 @@
 import os
 
 class DetecteurPalindrome:
-    def isPalindrome(str):
-        return 'bonjour' + os.linesep+ str[::-1] + os.linesep+ 'bien dit' + os.linesep+ 'au revoir'
+    def __init__(self, langue):
+        self.__langue = langue
+
+    def isPalindrome(self, str):
+        return 'bonjour' + os.linesep+ str[::-1] + os.linesep+ self.__langue.biendit() + os.linesep+ 'au revoir'
         
