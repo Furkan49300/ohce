@@ -33,9 +33,26 @@ class TestPalindrome(unittest.TestCase):
                 self.assertIn(attendu, resultat)
     
     def test_bonjour(self):
-        langues = [[LangueFrancaise(), 'bonjour'],[LangueAnglaise(), 'hello']]
+        langues = [[LangueFrancaise(), 'bonjour_am', 'matin'],[LangueAnglaise(), 'good night', 'nuit']]
 
-        #ETANT donne une chaine de caractere et une langue
+        #ETANT donne une chaine de caractere et une langue et un moment
+        str1="salut"
+        for i in langues:
+            with (self.subTest(i[0])):
+                langue=i[0]
+                moment=i[2]
+
+        #QUAND on saisit la chaine
+        resultat=DetecteurPalindromeBuilder().isLangue(langue).isMoment(moment).build().isPalindrome(str1)
+
+        #ALORS bonjour de cette langue a ce moment est renvoyé avant
+        attendu=i[1]
+        res=resultat.split(os.linesep)[0]
+        self.assertEqual(attendu, res)
+
+    def test_aurevoir(self):
+        langues = [[LangueFrancaise(), 'au revoir'],[LangueAnglaise(), 'good bye']]
+        #ETANT donne une chaine de caractere et une langue et un moment
         str1="salut"
         for i in langues:
             with (self.subTest(i[0])):
@@ -44,23 +61,7 @@ class TestPalindrome(unittest.TestCase):
         #QUAND on saisit la chaine
         resultat=DetecteurPalindromeBuilder().isLangue(langue).build().isPalindrome(str1)
 
-        #ALORS bonjour de cette langue est renvoyé avant
-        attendu=i[1]
-        res=resultat.split(os.linesep)[0]
-        self.assertEqual(attendu, res)
-
-    def test_aurevoir(self):
-        langues = [[LangueFrancaise(), 'au revoir'],[LangueAnglaise(), 'good bye']]
-        #ETANT donne une chaine de caractere et une langue
-        str1="salut"
-        for i in langues:
-            with (self.subTest(i[0])):
-                langue=i[0]
-
-        #QUAND on dmd saisit la chaine
-        resultat=DetecteurPalindromeBuilder().isLangue(langue).build().isPalindrome(str1)
-
-        #ALORS au revoir est envoyé en dernier
+        #ALORS au revoir de cette langue et de ce moment est envoyé en dernier
         attendu=i[1]
         res= resultat.split(os.linesep)[-1]
         self.assertEqual(attendu, res)
